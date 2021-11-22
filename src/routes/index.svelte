@@ -179,7 +179,7 @@
         {#each formInputs as input}
         <FormInput on:validated={onValidated} data={input}/>
         {/each}
-        <button on:click="{submitForm}" class="py-3 px-5 font-semibold text-gray-50 uppercase bg-custom-green rounded-md border-b-4 border-green-500">Claim your free trial</button>
+        <button id="form-button" on:click="{submitForm}" class="py-3 px-5 font-semibold text-gray-50 uppercase bg-custom-green rounded-md border-b-4 border-green-500">Claim your free trial</button>
         <small class="px-3 text-center text-custom-grayishBlue">
             By clicking the button, you are agreeing to our 
             <a class="text-custom-red font-bold" href="/">
@@ -213,6 +213,14 @@
 
     #bg-pattern {
         animation: fadeIn 1.5s forwards;
+    }
+
+    #form-button {
+        transition: .1s;
+    }
+    #form-button:hover {
+        transform: translateY(5%);
+        border-bottom-width: 8px;
     }
 
     @keyframes fadeIn {

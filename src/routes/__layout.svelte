@@ -22,12 +22,12 @@
 
 <slot />
 
-<footer class="bg-gray-900 text-gray-200 py-10">
-	<section class="max-w-2xl mx-auto text-3xl font-bold">
+<footer class="w-full bg-gray-900 text-gray-200 py-10">
+	<section class="mx-auto text-center text-xl font-bold md:text-2xl md:text-left md:max-w-2xl">
 		<h4 class="text-custom-red">
 			This project was built with:
 		</h4>
-		<div class="w-full grid py-5 gap-10 md:grid-cols-3">
+		<div class="w-full grid py-5 gap-y-6 md:gap-10 md:grid-cols-3">
 			<ul class="col-span-2 space-y-1">
 				<li on:mouseenter={listHoverIn} on:mouseleave={listHoverOut} class="relative cursor-pointer transition hover:text-custom-red">
 					<a href="https://kit.svelte.dev" target="_blank">
@@ -52,7 +52,7 @@
 				</li>
 			</ul>
 			
-			<div id="right-content" class="text-base text-custom-red font-normal col-span-1">
+			<div id="right-content" class="text-sm text-custom-red font-normal col-span-1 justify-self-end md:text-base">
 				<ul class="space-y-3">
 					<li>
 						<a target="_blank" href="https://github.com/joelepore/intro-component-with-signup-form">Check the GitHub repository</a>
