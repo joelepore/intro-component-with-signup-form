@@ -9,8 +9,6 @@
 			easing: 'linear',
 			duration: 100,
 		});
-		// Moving chevron
-		chevronMoving().play();
 	}
 	let listHoverOut = (list) => {
 		anime({
@@ -20,25 +18,11 @@
 			duration: 100
 		})
 	}
-	let chevronMoving = () => {
-		return anime({
-			targets: list.srcElement.querySelector('svg'),
-			translateX: -10,
-			loop: true,
-			duration: 300,
-			easing: 'linear',
-			direction: 'alternate', 
-		});
-	}
 </script>
 
 <slot />
 
-<footer class="bg-gray-900 text-gray-200 pb-32">
-	<p class="attribution p-6 text-center text-sm">
-		Challenge by <a class="transition hover:text-custom-red" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-		Coded by <a class="transition hover:text-custom-red" href="https://github.com/joelepore" target="_blank">Giuseppe Lepore</a>.
-	</p>
+<footer class="bg-gray-900 text-gray-200 py-10">
 	<section class="max-w-2xl mx-auto text-3xl font-bold">
 		<h4 class="text-custom-red">
 			This project was built with:
@@ -67,7 +51,7 @@
 					</a>
 				</li>
 			</ul>
-
+			
 			<div id="right-content" class="text-base text-custom-red font-normal col-span-1">
 				<ul class="space-y-3">
 					<li>
@@ -84,6 +68,10 @@
 			
 		</div>
 	</section>
+	<p class="attribution pt-6 text-center text-sm">
+		Challenge by <a class="transition hover:text-custom-red" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+		Coded by <a class="transition hover:text-custom-red" href="https://github.com/joelepore" target="_blank">Giuseppe Lepore</a>.
+	</p>
 </footer>
 
 <style>

@@ -1,26 +1,62 @@
 <script>
     import FormInput from "../components/FormInput.svelte";
     import anime from 'animejs/lib/anime.es';
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
+
+    let validatedForms = {};
 
     const formInputs = [
         {
             type: 'text',
             placeholder: 'First Name',
+            validation: {
+                required: true,
+                type: 'letters',
+            }
         },
         {
             type: 'text',
             placeholder: 'Last Name',
+            validation: {
+                required: true,
+                type: 'letters',
+            }
         },
         {
             type: 'text',
             placeholder: 'Email Address',
+            validation: {
+                required: true,
+                type: 'email',
+            }
         },
         {
             type: 'password',
             placeholder: 'Password',
+            validation: {
+                required: true,
+                type: 'password',
+            }
         },
     ];
+
+    const onValidated = (e) => {
+        validatedForms[e.detail.placeholder] = e.detail.validation; 
+    }
+
+    const finalValidation = () => {
+        let notValidatedForms = formInputs.length - validatedForms.length;
+        let validation = true;
+        if(notValidatedForms > 0) {
+            validation = false;
+        } else {
+            formInputs.forEach((form) => {
+                validation = validation && validatedForms[form.placeholder];
+                
+            });
+        }
+        return validation;
+    };
 
     let buttonHoverIn = (button) => {
         anime({
@@ -40,13 +76,30 @@ import { onMount } from "svelte";
 
     let submitForm = (e) => {
         e.preventDefault();
-        anime({
-            targets: 'div > form > input',
-            delay: anime.stagger(200),
-            duration: 900,
-            translateX: '200%',
-            easing: 'easeInElastic'
-        })
+        if(finalValidation()){
+            anime({
+                targets: 'div > form div > input',
+                delay: anime.stagger(200),
+                duration: 900,
+                translateX: '200%',
+                easing: 'easeInElastic'
+            })
+        } else {
+            let invalidFormInputs = [];
+            formInputs.forEach((item) => {
+                if(!validatedForms[item.placeholder]) {
+                    invalidFormInputs.push(document.querySelector(`input[placeholder='${item.placeholder}']`));
+                }
+            })
+            anime({
+                targets: invalidFormInputs,
+                translateX: 3,
+                direction: 'alternate',
+                duration: 150,
+                easing: 'easeInOutSine',
+                loop: 4 
+            })
+        }
     }
 
     onMount(() => {
@@ -76,7 +129,7 @@ import { onMount } from "svelte";
             delay: 300
         });
         anime({
-            targets: 'div > form > input',
+            targets: 'div > form div > input',
             translateX: ['200%', 0],
             rotate: [20, 0],
             duration: 700,
@@ -124,7 +177,7 @@ import { onMount } from "svelte";
 
     <form class="max-w-lg mx-auto p-5 bg-white text-sm flex flex-col gap-3 border-b-8 border-black border-opacity-[0.06] rounded-lg z-20 relative lg:text-base lg:mx-0" action="/">
         {#each formInputs as input}
-        <FormInput data={input}/>
+        <FormInput on:validated={onValidated} data={input}/>
         {/each}
         <button on:click="{submitForm}" class="py-3 px-5 font-semibold text-gray-50 uppercase bg-custom-green rounded-md border-b-4 border-green-500">Claim your free trial</button>
         <small class="px-3 text-center text-custom-grayishBlue">
