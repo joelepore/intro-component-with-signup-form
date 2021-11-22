@@ -23,6 +23,14 @@
             passwordMessage = 'Weak';
             passwordMessageColor= 'red-500';
         } 
+
+        let classes = [
+            'bg-red-500',
+            'bg-yellow-500',
+            'text-red-500',
+            'text-yellow-500',
+            'text-custom-green'
+        ]
     }
 </script>
 
