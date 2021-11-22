@@ -152,6 +152,11 @@
     });
 </script>
 
+<svelte:head>
+    <title>FrontendMentor | Intro Component with Signup Form</title>
+    <meta name="description" content="FrontendMentor's Intro Component with Signup Form challenge coded by Giuseppe Lepore using SvelteKit, TailwindCSS and Anime.js">
+</svelte:head>
+
 <div class="bg-custom-red py-10 px-5 grid gap-x-8 relative overflow:hidden lg:grid-cols-2 lg:py-36">
     <header class="max-w-xl mx-auto text-white text-center z-20 lg:text-left lg:max-w-xl lg:justify-self-end lg:mx-0">
         <h1 class="py-5 font-bold text-3xl leading-none md:text-5xl lg:text-6xl">
