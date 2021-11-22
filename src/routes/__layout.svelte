@@ -44,7 +44,7 @@
 			This project was built with:
 		</h4>
 		<div class="w-full grid py-5 gap-10 md:grid-cols-3">
-			<ul class="col-span-2">
+			<ul class="col-span-2 space-y-1">
 				<li on:mouseenter={listHoverIn} on:mouseleave={listHoverOut} class="relative cursor-pointer transition hover:text-custom-red">
 					<a href="https://kit.svelte.dev" target="_blank">
 						<svg class="w-[1em] h-[1em] top-0.5 absolute left-[-1em] block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -71,13 +71,13 @@
 			<div id="right-content" class="text-base text-custom-red font-normal col-span-1">
 				<ul class="space-y-3">
 					<li>
-						<a href="#">Check the GitHub repository</a>
+						<a target="_blank" href="https://github.com/joelepore/intro-component-with-signup-form">Check the GitHub repository</a>
 					</li>
 					<li>
-						<a href="#">Check the original FrontendMentor project page</a>
+						<a target="_blank" href="https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1">Check the original FrontendMentor project page</a>
 					</li>
 					<li>
-						<a href="#">SvelteKit + TailwindCSS template I use</a>
+						<a target="_blank" href="https://github.com/joelepore/sveltekit-tailwind">SvelteKit + TailwindCSS template I use</a>
 					</li>
 				</ul>
 			</div>
